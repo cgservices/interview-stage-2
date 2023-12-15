@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": ["es2020", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@recharge/config": ["libs/config/src/index.ts"],
+      "@recharge/logger": ["libs/logger/src/index.ts"],
+      "@recharge/payment": ["libs/payment/src/index.ts"],
+      "@recharge/payment-methods/test-factory": [
+        "libs/payment-methods/src/test-factory/index.ts"
+      ],
+      "@recharge/payment/test-factory": [
+        "libs/payment/src/test-factory/index.ts"
+      ],
+      "@recharge/tailwind/global-css": [
+        "libs/ui-components/src/components/tailwind/tailwind.css"
+      ],
+      "@recharge/test-util/test-factory": [
+        "libs/test-util/src/test-factory/index.ts"
+      ],
+      "@recharge/ui-components": ["libs/ui-components/src/components/index.ts"],
+      "@recharge/ui-components/atoms": [
+        "libs/ui-components/src/components/atoms/index.ts"
+      ],
+      "@recharge/verification/test-factory": [
+        "libs/verification/src/test-factory/index.ts"
+      ],
+      "payment": ["libs/payment/src/index.ts"]
+    },
+    "sourceMap": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"]
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "test-util",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/test-util/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/test-util/**/*.ts",
+          "libs/test-util/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/test-util/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "ts-check": {
+    "executor": "nx:run-commands",
+    "options": {
+      "commands": [
+        {
+          "command": "tsc --build --force --verbose libs/test-util/tsconfig.json"
+        }
+      ]
+    }
+  },
+  "tags": []
+}

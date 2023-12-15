@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -e
+
+Purple='\033[0;35m'
+NC='\033[0m'
+
+if git diff --quiet; then
+  printf "${Purple}No changes to stash${NC}\n"
+else
+  printf "${Purple}Stashing changes before pushing${NC}\n"
+  git stash -u
+  STASHED=true
+fi
+
+pnpm nx affected -t test, lint, infrastructure-validate --base=remotes/origin/main
+
+if [ "$STASHED" = true ]; then
+  printf "${Purple}Unstashing changes before pushing${NC}\n"
+  git stash pop
+fi
+

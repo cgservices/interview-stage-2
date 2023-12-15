@@ -1,0 +1,29 @@
+type Payment {
+  id: String!
+  sessionId: String!
+  sessionData: String!
+  createdAt: String!
+  updatedAt: String!
+  paymentDetails: PaymentDetails!
+  riskAssessment: String!
+  status: String!
+  orderId: String
+}
+
+type PaymentDetails {
+  email: String!
+  country: String!
+  price: Float!
+  currency: String!
+  cardScheme: String!
+}
+
+input PaymentInput {
+  country: String!
+  price: Float!
+  currency: String!
+  email: String!
+  productId: String!
+  externalProductId: String!
+  cardScheme: String!
+}

@@ -1,0 +1,9 @@
+generates:
+  apps/recharge-fe/app/_features/generated/payment.ts:
+    documents: 'apps/recharge-fe/app/_features/payment/payment.graphql'
+    schema:
+      - 'apps/api-layer/src/generated/payments-schema.json'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql

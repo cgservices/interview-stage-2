@@ -1,0 +1,35 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "eslint.packageManager": "pnpm",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "cSpell.words": [
+    "AUTHORISATION",
+    "authorise",
+    "authorising",
+    "Buildable",
+    "headlessui",
+    "Healthz",
+    "jetstream",
+    "nats",
+    "partialize",
+    "paysafe",
+    "paysafecard",
+    "PROVIDERID",
+    "UNCONTAINED",
+    "unfetch",
+    "urql",
+    "Zustand"
+  ]
+}

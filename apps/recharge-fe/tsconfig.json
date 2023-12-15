@@ -1,0 +1,32 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "lib": ["es2021", "DOM", "DOM.Iterable"],
+    "incremental": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "files": [],
+  "include": [
+    "../../types/global.d.ts",
+    "next-env.d.ts",
+    "../../dist/apps/recharge-fe/.next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": ["node_modules", "jest.config.ts"]
+}
