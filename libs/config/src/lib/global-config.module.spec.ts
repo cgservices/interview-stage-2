@@ -6,13 +6,6 @@ import { GlobalConfigModule } from './global-config.module';
 
 jest.mock('@recharge/logger');
 
-jest.mock('nats', () => ({
-  connect: jest.fn().mockResolvedValue({
-    jetstream: jest.fn(),
-  }),
-  JSONCodec: jest.fn(),
-}));
-
 describe('Global config', () => {
   it('should be defined', async () => {
     const module = await Test.createTestingModule({
