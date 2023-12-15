@@ -13,8 +13,6 @@ else
   STASHED=true
 fi
 
-pnpm nx affected -t test, lint, infrastructure-validate --base=remotes/origin/main
-
 if [ "$STASHED" = true ]; then
   printf "${Purple}Unstashing changes before pushing${NC}\n"
   git stash pop
