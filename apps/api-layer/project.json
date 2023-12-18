@@ -100,13 +100,6 @@
           }
         ]
       }
-    },
-    "e2e": {
-      "executor": "@nx/playwright:playwright",
-      "outputs": ["{workspaceRoot}/dist/.playwright/apps/api-layer"],
-      "options": {
-        "config": "apps/api-layer/playwright.config.ts"
-      }
     }
   },
   "tags": []
