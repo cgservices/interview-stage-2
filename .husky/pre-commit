@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+pnpm ls-lint
+pnpm nx format:check uncommitted
+pnpm nx affected -t ts-check --base=remotes/origin/main
+pnpm lint-staged --concurrent false --relative

@@ -1,0 +1,106 @@
+{
+  "name": "api-layer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api-layer/src",
+  "projectType": "application",
+  "targets": {
+    "codegen": {
+      "command": "graphql-codegen --config apps/api-layer/codegen.yml"
+    },
+    "add-version": {
+      "dependsOn": [],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "echo $VERSION > apps/api-layer/src/version.txt"
+          }
+        ]
+      }
+    },
+    "build": {
+      "dependsOn": ["codegen", "add-version"],
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/api-layer",
+        "main": "apps/api-layer/src/main.ts",
+        "tsConfig": "apps/api-layer/tsconfig.app.json",
+        "isolatedConfig": true,
+        "webpackConfig": "apps/api-layer/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "generatePackageJson": true,
+          "generateLockfile": true,
+          "assets": [
+            "apps/api-layer/src/payments/payments-types.graphql",
+            "apps/api-layer/src/payments/payments.graphql"
+          ]
+        },
+        "production": {
+          "generatePackageJson": true,
+          "generateLockfile": true,
+          "assets": [
+            "apps/api-layer/src/version.txt",
+            "apps/api-layer/src/payments/payments-types.graphql",
+            "apps/api-layer/src/payments/payments.graphql"
+          ]
+        }
+      }
+    },
+    "serve": {
+      "dependsOn": ["codegen"],
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "api-layer:build",
+        "port": 19925
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "api-layer:build:development"
+        },
+        "production": {
+          "buildTarget": "api-layer:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/api-layer/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/api-layer/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "ts-check": {
+      "dependsOn": ["codegen"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc --build --force --verbose apps/api-layer/tsconfig.json"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

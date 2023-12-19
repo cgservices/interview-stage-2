@@ -1,0 +1,179 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": [
+    "@nx",
+    "jest-formatting",
+    "simple-import-sort",
+    "functional",
+    "eslint-plugin-local-rules",
+    "eslint-plugin-import",
+    "react-hooks"
+  ],
+  "extends": [
+    "plugin:jest/recommended",
+    "eslint:recommended",
+    "plugin:jest-formatting/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "parserOptions": {
+        "project": ["tsconfig.base.json"]
+      },
+      "rules": {
+        "eqeqeq": ["error", "always"],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ],
+        "@typescript-eslint/no-duplicate-imports": ["error"],
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^\\u0000"],
+              ["^react", "^@testing"],
+              ["^[^.]"],
+              ["^\\."]
+            ]
+          }
+        ],
+        "functional/no-let": "error",
+        "prefer-template": "error",
+        "no-useless-concat": "error",
+        "functional/immutable-data": "error",
+        "no-nested-ternary": "error",
+        "@typescript-eslint/consistent-type-imports": ["error"],
+        "simple-import-sort/exports": "error",
+        "arrow-body-style": 2,
+        "@typescript-eslint/no-var-requires": 0,
+        "no-use-before-define": "error",
+        "curly": "error",
+        "no-console": ["error"],
+        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+        "require-await": "error",
+        "local-rules/filepath": [
+          "error",
+          {
+            "filename": "kebab-case-with-points-and-brackets",
+            "directory": "point-started-kebab-case-with-brackets",
+            "ignore": ["page"]
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": 0,
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-parameter-properties": 0,
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/array-type": 2,
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/ban-ts-comment": 2,
+        "@typescript-eslint/no-explicit-any": 2,
+        "@typescript-eslint/no-empty-interface": 2,
+        "@typescript-eslint/no-duplicate-type-constituents": 2,
+        "@typescript-eslint/no-misused-new": 2,
+        "@typescript-eslint/no-misused-promises": 2,
+        "@typescript-eslint/no-require-imports": 2,
+        "@typescript-eslint/no-unsafe-enum-comparison": 2,
+        "@typescript-eslint/no-useless-empty-export": 2,
+        "@typescript-eslint/prefer-as-const": 2,
+        "@typescript-eslint/prefer-for-of": 2,
+        "@typescript-eslint/prefer-reduce-type-parameter": 2,
+        "@typescript-eslint/restrict-plus-operands": 2,
+        "@typescript-eslint/switch-exhaustiveness-check": 2,
+        "@typescript-eslint/triple-slash-reference": 2,
+        "@typescript-eslint/unified-signatures": 2,
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": ["variable", "typeProperty"],
+            "types": ["boolean"],
+            "format": ["PascalCase"],
+            "filter": {
+              "regex": "(disabled|enabled|center|bold)",
+              "match": false
+            },
+            "prefix": [
+              "is",
+              "are",
+              "should",
+              "has",
+              "have",
+              "can",
+              "do",
+              "does",
+              "did",
+              "will",
+              "failOn"
+            ]
+          }
+        ],
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "TSEnumDeclaration > TSEnumMember > Literal",
+            "message": "Use a string union type instead."
+          }
+        ],
+        "import/no-internal-modules": [
+          "error",
+          {
+            "allow": [
+              "**/*.css",
+              "next/*",
+              "next/legacy/*",
+              "urql/core",
+              "msw/*",
+              "@nx/playwright/preset",
+              "zustand/middleware",
+              "validator/lib/isMobilePhone"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {
+        "react/react-in-jsx-scope": 0,
+        "arrow-body-style": 2
+      }
+    },
+
+    {
+      "files": [
+        "*.spec.ts",
+        "*.spec.tsx",
+        "*.spec.js",
+        "*.spec.jsx",
+        "*-page.ts",
+        "playwright.config.ts"
+      ],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "functional/immutable-data": "off",
+        "jest/expect-expect": "error",
+        "playwright/valid-expect": "off",
+        "playwright/no-networkidle": "off"
+      }
+    }
+  ]
+}

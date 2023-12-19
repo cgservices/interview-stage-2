@@ -1,0 +1,9 @@
+# Add files here to ignore them from prettier formatting
+/dist
+/coverage
+pnpm-lock.yaml
+node_modules
+**/.gen
+apps/recharge-fe/public/mockServiceWorker.js
+libs/cms/src/content-models/**
+.vscode/launch.json

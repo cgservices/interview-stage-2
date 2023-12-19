@@ -1,0 +1,25 @@
+ls:
+  .md: kebab-case
+  .dir: >
+    kebab-case |
+    point.case |
+    regex:(__mocks__) |
+    regex:(\[\.*\w+\]) |
+    regex:(_\w+) |
+  apps/**/.next:
+    .dir: regex:.*
+ignore:
+  - apps/recharge-fe/public
+  - .idea
+  - .git
+  - .github
+  - .husky
+  - .storybook
+  - .vscode
+  - infrastructure/cdk/cdktf.out
+  - infrastructure/cdk/.gen
+  - dist
+  - node_modules
+  - tmp
+  - coverage
+  - data

@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "ms-playwright.playwright",
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
+    "arahata.linter-actionlint",
+    "Orta.vscode-jest",
+    "GraphQL.vscode-graphql",
+    "GraphQL.vscode-graphql-syntax",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "ms-playwright.playwright",
+    "nrwl.angular-console"
+  ]
+}

@@ -1,0 +1,46 @@
+node_modules
+dist
+coverage
+tmp
+tsconfig.tsbuildinfo
+
+# Playwright
+**/test-results
+**/playwright-report
+**/playwright/.cache
+
+.nx
+
+# Next.js
+.next
+
+.env
+.env.local
+.env.acceptance
+.env.production
+
+# Terraform
+.terraform
+**/.gen
+**.cdktf.out
+**/cdktf.out
+.terraform.*
+
+# Generated files
+**/generated
+
+.DS_Store
+
+*.tsbuildinfo
+
+data
+apps/**/version.txt
+
+# Webstorm
+.idea/*
+!.idea/inspectionProfiles
+!.idea/jsLinters
+!.idea/misc.xml
+!.idea/modules.xml
+!.idea/prettier.xml
+!.idea/vcs.xml

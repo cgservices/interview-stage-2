@@ -1,0 +1,11 @@
+hooks:
+  afterOneFileWrite: ['prettier --write']
+generates:
+  apps/api-layer/src/generated/payments-schema.json:
+    schema:
+      - apps/api-layer/src/payments/payments-types.graphql
+      - apps/api-layer/src/payments/payments.graphql
+    config:
+      schemaDescription: true
+    plugins:
+      - 'introspection'

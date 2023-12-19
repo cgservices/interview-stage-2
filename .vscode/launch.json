@@ -1,0 +1,78 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to api-layer",
+      "port": 19925,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "cwd": "${workspaceFolder}/apps/api-layer/"
+    },
+    {
+      "name": "Attach to notification-service",
+      "port": 19926,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "cwd": "${workspaceFolder}/apps/notification-service/"
+    },
+    {
+      "name": "Attach to order-fulfilment-service",
+      "port": 19927,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "cwd": "${workspaceFolder}/apps/order-fulfilment-service/"
+    },
+    {
+      "name": "Attach to orders-service",
+      "port": 19928,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "cwd": "${workspaceFolder}/apps/orders-service/"
+    },
+    {
+      "name": "Attach to payments-service",
+      "port": 19929,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "cwd": "${workspaceFolder}/apps/payments-service/"
+    },
+    {
+      "name": "Attach to product-information-service",
+      "port": 19930,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "cwd": "${workspaceFolder}/apps/product-information-service/"
+    },
+    {
+      "name": "Attach to verification-service",
+      "port": 19931,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "cwd": "${workspaceFolder}/apps/verification-service/"
+    }
+  ]
+}

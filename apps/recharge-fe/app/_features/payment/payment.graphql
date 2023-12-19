@@ -1,0 +1,7 @@
+mutation CreatePayment($paymentInput: PaymentInput!) {
+  createPayment(paymentInput: $paymentInput) {
+    id
+    sessionData
+    sessionId
+  }
+}

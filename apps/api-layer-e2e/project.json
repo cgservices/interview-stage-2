@@ -1,0 +1,34 @@
+{
+  "name": "api-layer-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api-layer-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/api-layer-e2e"],
+      "options": {
+        "config": "apps/api-layer-e2e/playwright.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/api-layer-e2e/**/*.{js,ts}"]
+      }
+    },
+    "ts-check": {
+      "dependsOn": ["^codegen"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc --build --force --verbose apps/api-layer-e2e/tsconfig.json"
+          }
+        ]
+      }
+    }
+  },
+  "implicitDependencies": ["api-layer"]
+}

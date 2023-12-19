@@ -1,0 +1,88 @@
+{
+  "name": "recharge-fe",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/recharge-fe",
+  "projectType": "application",
+  "targets": {
+    "codegen": {
+      "command": "graphql-codegen --config apps/recharge-fe/codegen.yml"
+    },
+    "build": {
+      "dependsOn": ["^codegen"],
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/recharge-fe"
+      },
+      "configurations": {
+        "development": {
+          "generatePackageJson": true,
+          "generateLockfile": true
+        },
+        "production": {
+          "generatePackageJson": true,
+          "generateLockfile": true
+        }
+      }
+    },
+    "serve": {
+      "dependsOn": ["^codegen"],
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "recharge-fe:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "recharge-fe:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "recharge-fe:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "recharge-fe:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/recharge-fe/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/recharge-fe/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "ts-check": {
+      "dependsOn": ["^codegen"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc --build --force --verbose apps/recharge-fe/tsconfig.json"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}
