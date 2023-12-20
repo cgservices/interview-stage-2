@@ -1,7 +1,3 @@
 type Query {
   findPaymentById(id: String!): Payment
 }
-
-type Mutation {
-  createPayment(paymentInput: PaymentInput!): Payment
-}
