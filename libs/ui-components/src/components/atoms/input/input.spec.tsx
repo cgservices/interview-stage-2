@@ -1,13 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { Input } from './input';
-import { inputMockProps } from './input.mocks';
+import { inputPropsFactory } from './test-factory/input-factory';
 
 const mockChange = jest.fn();
 
 const setup = (optionalParams = {}) => {
   const defaultProps = {
-    ...inputMockProps,
+    ...inputPropsFactory.build(),
     ...optionalParams,
     onChange: mockChange,
   };
