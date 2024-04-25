@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Input } from './input';
-import { inputMockProps } from './input.mocks';
+import { inputPropsFactory } from './test-factory/input-factory';
 
 const meta: Meta<typeof Input> = {
   component: Input,
@@ -12,6 +12,6 @@ type Story = StoryObj<typeof Input>;
 
 export const email: Story = {
   args: {
-    ...inputMockProps,
+    ...inputPropsFactory.build(),
   },
 };

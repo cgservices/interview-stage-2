@@ -18,7 +18,7 @@
     "npm": "please-use-pnpm",
     "node": ">=18",
     "yarn": "please-use-pnpm",
-    "pnpm": ">=8"
+    "pnpm": "=8"
   },
   "private": true,
   "devDependencies": {
