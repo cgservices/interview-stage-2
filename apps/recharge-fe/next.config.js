@@ -11,7 +11,6 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['images.ctfassets.net'],
     remotePatterns: [
       {
         protocol: 'https',

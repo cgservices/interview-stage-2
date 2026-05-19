@@ -111,6 +111,8 @@
     "whatwg-fetch": "3.6.20"
   },
   "dependencies": {
+    "@apollo/server": "5.5.1",
+    "@as-integrations/express5": "1.1.2",
     "@nestjs/apollo": "13.4.0",
     "@nestjs/common": "11.1.21",
     "@nestjs/config": "4.0.4",

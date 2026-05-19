@@ -3,13 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": false,
+    "ignoreDeprecations": "6.0",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "lib": ["es2020", "dom"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "paths": {
       "@recharge/config": ["libs/config/src/index.ts"],
       "@recharge/logger": ["libs/logger/src/index.ts"],
