@@ -94,5 +94,6 @@
   "plugins": ["nx/plugins/package-json"],
   "workspaceLayout": {
     "projectNameAndRootFormat": "as-provided"
-  }
+  },
+  "analytics": true
 }
